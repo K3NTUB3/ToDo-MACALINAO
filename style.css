@@ -18,8 +18,12 @@ body {
 }
 
 h1 {
-    font-size: 24px;
+    font-size: 40px;
     color: #333;
+}
+h2 {
+    font-size: 20px;
+    color: #22ac57;
 }
 
 .input-container {

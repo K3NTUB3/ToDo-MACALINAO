@@ -4,18 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- SweetAlert2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>To-Do List</h1>
-        <div class="input-container">
-            <input type="text" id="taskInput" placeholder="Enlist your Task Here...">
-            <button id="addTaskButton">Confirm
-            </button>
+        <h1 class="my-4">To-Do List</h1>
+        <div class="input-container mb-4">
+            <input type="text" id="taskInput" class="form-control" placeholder="Enlist your Task Here...">
+            <button id="addTaskButton" class="btn btn-primary ml-2">Confirm</button>
         </div>
-        <ul id="taskList"></ul>
+        <ul id="taskList" class="list-unstyled"></ul>
     </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <!-- Custom JS -->
     <script src="script.js"></script>
 </body>
 </html>

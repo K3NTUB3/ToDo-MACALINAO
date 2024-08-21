@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskInput = document.getElementById('taskInput');
     const taskList = document.getElementById('taskList');
     let editingItem = null;
+    let taskToDelete = null;
 
     // Load tasks from localStorage
     function loadTasks() {
@@ -40,13 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const editButton = document.createElement('button');
         editButton.textContent = 'Edit';
-        editButton.className = 'edit-button';
+        editButton.className = 'btn btn-warning btn-sm edit-button';
         editButton.addEventListener('click', () => editTask(id));
 
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
-        deleteButton.className = 'delete-button';
-        deleteButton.addEventListener('click', () => deleteTask(id));
+        deleteButton.className = 'btn btn-danger btn-sm delete-button';
+        deleteButton.addEventListener('click', () => {
+            taskToDelete = id;
+            confirmDeletion();
+        });
 
         const buttonsContainer = document.createElement('div');
         buttonsContainer.className = 'buttons-container';
@@ -83,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const taskText = taskInput.value.trim();
         if (taskText === '') return;
 
-        const id = Date.now();
+        const id = Date.now(); // Generate a unique ID based on timestamp
         const taskElement = createTaskElement(taskText, id);
         taskList.appendChild(taskElement);
         taskInput.value = '';
@@ -114,6 +118,29 @@ document.addEventListener('DOMContentLoaded', () => {
         saveTasks();
     }
 
+    function confirmDeletion() {
+        Swal.fire({
+            title: 'Double Check!',
+            text: "This action is irreversible.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                deleteTask(taskToDelete);
+                taskToDelete = null;
+                Swal.fire(
+                    'Deleted!',
+                    'Your task has been deleted.',
+                    'success'
+                );
+            }
+        });
+    }
+
     addTaskButton.addEventListener('click', () => {
         if (editingItem) {
             updateTask();
@@ -121,5 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
             addTask();
         }
     });
+
     loadTasks();
 });

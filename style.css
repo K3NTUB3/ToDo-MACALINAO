@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 550px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: #fff;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3; 
+    transform: scale(1.05); 
+}
+
+button:disabled {
+    background-color: #ddd; 
+    color: #aaa; 
+    cursor: not-allowed; 
+    transform: none; 
+}
+
+button.edit-button {
+    background-color: #ffc107;
+    color: #333;
+}
+
+button.edit-button:hover:not(:disabled) {
+    background-color: #e0a800;
+}
+
+button.delete-button {
+    background-color: #dc3545;
+}
+
+button.delete-button:hover:not(:disabled) {
+    background-color: #c82333;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    padding: 10px 15px;
+    border: 5px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: relative;
+    justify-content: space-between;
+}
+
+.checkbox {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.task-text {
+    flex: 1;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 5px;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #aaa;
+}
